@@ -128,7 +128,10 @@ class Form(object):
         keys = self.data.keys()
         keys.sort(key=keynormalize)
         for k in keys:
-            print('  %4s %11s' % (k, locale.format('%d', self[k], 1)), end='')
+            if self.disable_rounding:
+                print('  %4s %11s' % (k, locale.format('%1.3f', self[k], 1)), end='')
+            else:
+                print('  %4s %11s' % (k, locale.format('%d', self[k], 1)), end='')
             if k in self.comment:
                 print('  %s' % self.comment[k], end='')
             print('')

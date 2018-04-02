@@ -93,6 +93,9 @@ class F1040(Form):
         else:
             if sse.mustFile():
                 f['27'] = sse['A6'] or sse['B13']
+        f.comment['33'] = 'Student loan interest'
+        f['33'] = inputs.get('student_loan_interest')
+
         f['36'] = f.rowsum(['23', '24', '25', '26', '27', '28', '29',
                             '30', '31a', '32', '33', '34', '35'])
         f.comment['37'] = 'AGI'
@@ -275,6 +278,8 @@ class F1040(Form):
         w['7'] = f['47']
         # TODO: forms 5696, 8910, 8936, schedule R
         w['8'] = f.rowsum(['48', '49', '50', '51'])
+        if w['8'] is None:
+            w['8'] = 0
         if w['7'] == w['8']:
             raise RuntimeError('TODO: additional child tax credit')
             return None

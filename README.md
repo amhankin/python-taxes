@@ -21,8 +21,8 @@ by Aaron Hankin
 	* Added C0 104us use tax form (for large untaxed online purcahses that
 	  require sales tax)
 
-## Instillation Instructions with conda
-I have included a quick instillation instructions below. You will first create
+## Installation Instructions with conda
+I have included a quick installation instructions below. You will first create
 a python 2.7 environment using conda if you do not already have one. Following
 that, you can clone the code from the repository. 
 ```
